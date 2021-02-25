@@ -1,0 +1,141 @@
+options:
+  logo: &9[EASY] &r 
+  perm: easyitems.*
+  noperm: &cHey&7! &cYou cant do that.
+
+
+command /easyitems [<text>] [<text>]:
+  permission: {@perm}
+  permission message: {@noperm}
+  trigger:
+    if arg-1 is not set:
+      open chest with 3 rows named "&9[EasyItems]" to player
+      wait 1 tick
+      format slot 13 of player with knowledge book named "&9View Items" to run [make player execute command "easyitems list"]
+    if arg-1 is "list":
+      open chest with 2 row named "&9[EasyItems]" to player
+      wait 1 tick
+      format slot 0 of player with blaze rod named "&5Fire Launcher" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive fire_launcher"]
+      format slot 1 of player with stick named "&9Magic Toy Stick" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive magic_toy_stick"]
+      format slot 2 of player with diamond sword named "&9Aspect of the End" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive aspect_of_the_end"]
+      format slot 3 of player with gold sword named "&fRogue Sword" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive rogue_sword"]
+      format slot 4 of player with iron horse armor named "&aSnowball Canon" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive snowball_canon"]
+      format slot 5 of player with bow named "&6Shooty Bow" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive shooty_bow"]
+      format slot 6 of player with feather named "&9Levitator" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive levitator"]
+      format slot 7 of player with end rod named "&5Lightning Stick" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive lightning_stick"]
+      format slot 8 of player with tnt named "&cNuke" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive nuke"]
+      format slot 9 of player with stick named "&9Healing Wand" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive healing_wand"]
+      format slot 10 of player with ender chest named "&5Portable Enderchest" with lore "&eCLICK TO RECEIVE" to close then run [make player execute command "easygive portable_enderchest"]
+
+
+    if arg-1 is "reload" or "rl":
+      send "{@logo}&bReloading EasyItems"
+      make console execute command "sk reload ei"
+      send "{@logo}&bEasyItems reloaded"
+    
+
+command /easygive <text>:
+  permission: {@perm}
+  permission message: {@noperm}
+  trigger:
+    if arg-1 is "fire_launcher":
+      give player blaze rod named "&5Fire Launcher" with lore "&7Damage: &c+70", "&7Strength: &c+5", "&r", "&6Item Ability: Kaboom &e&lRIGHT CLICK", "&7Shoot a fireball at your", "&7enemies. Making them", "&7lauch into the air.", "&r" and "&5&lEPIC"
+    if arg-1 is "magic_toy_stick":
+      give player stick named "&9Magic Toy Stick" with lore "&6Item Ability: Launch &e&lRIGHT CLICK", "&7Launch yourself into", "&7minecraft's atmosphere.", "&r" and "&9&lRARE"
+    if arg-1 is "aspect_of_the_end":
+      give player diamond sword named "&9Aspect of the End" with lore "&7Damage: &c+100", "&7Strength: &c+100", "&r", "&6Item Ability: Slow Transmission &e&lRIGHT CLICK", "&7Teleport &a8 blocks &7ahead of", "&7you.", "&r" and "&9&lRARE"
+    if arg-1 is "rogue_sword":
+      give player gold sword named "&fRogue Sword" with lore "&7Damage: &c+20", "&r", "&6Item Ability: Speed Boost &e&lRIGHT CLICK", "&7Increases your movement", "&fSpeed &7by &a+20 &7for &a30", "&7seconds.", "&r" and "&f&lCOMMON"
+    if arg-1 is "snowball_canon":
+      give player iron horse armor named "&aSnowball Canon" with lore "&7Damage: &c+0", "&r", "&6Item Ability: Cold Suprise &e&lRIGHT CLICK", "&7Throw a &aCold &7suprise", "&7at your enimies.", "&r" and "&a&lUNCOMMON"
+    if arg-1 is "shooty_bow":
+      give player bow named "&6Shooty Bow" with lore "&7Damage: &c+75", "&r", "&6Item Ability: Blazing Arrows &e&lLEFT CLICK", "&7Shoot arrows faster then", "&7you ever have.", "&r" and "&6&lLEGENDARY"
+    if arg-1 is "levitator":
+      give player feather named "&9Levitator" with lore "&6Item Ability: Levitation &e&lRIGHT CLICK", "&7You feel ill, and you're", "&7to float up in the sky.", "&r" and "&9&lRARE"
+    if arg-1 is "lightning_stick":
+      give player end rod named "&5Lightning Stick" with lore "&7Damage: &c+40", "&r", "&6Item Ability: Pure Lightning &e&lLEFT CLICK", "&7Summon your lightning at ease with", "&7this lightning stick", "&r" and "&5&lEPIC"
+    if arg-1 is "nuke":
+      give player tnt named "&cNuke" with lore "&7Damage: &c+∞", "&r", "&6Item Ability: Definitely Chaos &e&lLEFT CLICK", "&7Summon a swarm of TNT to make", "&7the new moon crater", "&r" and "&c&lSPECIAL"
+    if arg-1 is "healing_wand":
+      give player stick named "&9Healing Wand" with lore "&7Health: &c+15", "&r", "&6Item Ability: Health Regeneration &e&lRIGHT CLICK", "&7Heal yourselves with style.", "&7Lets you gain regeneration.", "&r" and "&9&lRARE"
+    if arg-1 is "portable_enderchest":
+      give player ender chest named "&5Portable Enderchest" with lore "&6Item Ability: Small Backpack &e&lLEFT CLICK", "&7Opens a handy dandy enderchest", "&7for you to use.", "&r" and "&5&lEPIC"
+
+
+
+
+on right click with blaze rod:
+  if name of event-item is "&5Fire Launcher":
+    shoot a fireball from player with speed 1
+
+  
+
+
+on right click with stick:
+  if name of event-item is "&9Magic Toy stick":
+    shoot a fireball from player with speed 100
+    push the player upwards
+    push the player upwards
+    push the player upwards
+    push the player upwards
+    push the player upwards
+    push the player upwards
+    push the player upwards
+    push the player upwards
+
+
+on right click with diamond sword:
+  if name of event-item is "&9Aspect of the End":
+    push the player forward at speed 4
+
+
+on right click with gold sword:
+  if name of event-item is "&fRogue Sword":
+    make console execute command "effect give %player% minecraft:speed 30 5 true"
+
+
+on right click with iron horse armor:
+  if name of event-item is "&aSnowball Canon":
+    shoot a snowball from player with speed 3
+
+
+on left click with bow:
+  if name of event-item is "&6Shooty Bow":
+    shoot an arrow from player with speed 5
+
+
+on right click with feather:
+  if name of event-item is "&9Levitator":
+    make console execute command "effect give %player% minecraft:levitation 5 2 true"
+    make console execute command "effect give %player% minecraft:nausea 5 2 true"
+
+
+on left click with end rod:
+  if name of event-item is "&5Lightning Stick":
+    strike lightning effect at the player
+
+
+on left click with tnt:
+  if name of event-item is "&cNuke":
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+    spawn tnt at player's location
+
+on right click with stick:
+  if name of event-item is "&9Healing Wand":
+    make console execute command "effect give %player% minecraft:regeneration 10 1 true"
+
+
+on left click with ender chest:
+  if name of event-item is "&5Portable Enderchest":
+    open the player's ender chest to the player
+
