@@ -1,5 +1,5 @@
 options:
-  version: 0.7
+  version: 0.5
   autoupdate: true
 
   logo: &9[EASY] &r 
