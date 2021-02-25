@@ -1,7 +1,23 @@
 options:
+  version: 0.7
+  autoupdate: true
+
   logo: &9[EASY] &r 
   perm: easyitems.*
   noperm: &cHey&7! &cYou cant do that.
+
+on skript load:
+  set {_version} to line 1 from "https://raw.githubusercontent.com/EasySk/EasyItems/main/ei.sk"
+  if {@version} is {_version}:
+    download from "https://raw.githubusercontent.com/EasySk/EasyItems/main/ei.sk" to "plugins/Skript/scripts/ei.sk"
+    send "&cDownload EasyItems Update." to CONSOLE
+    wait 160 ticks
+    send "&cEasyItems Updated, Reloading EasyItems." to CONSOLE
+    execute console command "/skript reload ei.sk"
+    wait 5 seconds
+    send "&cEasyItems Update is done."
+    stop
+
 
 
 command /easyitems [<text>] [<text>]:
