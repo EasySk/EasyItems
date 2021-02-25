@@ -8,3 +8,4 @@
  # Links
   + https://github.com/SkriptLang/Skript/releases
   + https://github.com/SkQuery/SkQuery/releases
+  + https://github.com/EasySk/EasyItems/releases
