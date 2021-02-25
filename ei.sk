@@ -11,10 +11,10 @@ on player join:
     if loop-player has permission "easyitems.*":
       set {_version} to line 2 from url "https://raw.githubusercontent.com/EasySk/EasyItems/main/ei.sk"
       if {@version} is {_version}:
-        broadcast "&cEasyItems needs to be updated update at:"
-        broadcast "&9https://github.com/EasySk/EasyItems/releases"
-      else:
         send "&cEasyItems is Uptodate" to loop-player
+      else:
+        broadcast "&cEasyItems needs to be updated update at:"
+        broadcast "&chttps://github.com/EasySk/EasyItems/releases"
 
 
 
