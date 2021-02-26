@@ -3,6 +3,7 @@
  + Download ei.sk.
  + Download Skript.
  + Download SkQuery.
+ + Download SkUtilities
  + Put ei.sk into plugins/Skript/scripts
  
  # Links
